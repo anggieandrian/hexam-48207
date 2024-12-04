@@ -40,41 +40,6 @@ public class InvoiceApplyHeaderServiceImpl implements InvoiceApplyHeaderService 
         invoiceApplyHeaderRepository.batchInsertSelective(insertList);
         invoiceApplyHeaderRepository.batchUpdateByPrimaryKeySelective(updateList);
     }
-//    public List<InvoiceHeaderDTO> getAllInvoiceHeaders(Long tenantId, String lang) {
-//        List<InvoiceApplyHeader> headers = invoiceApplyHeaderRepository.findByTenantId(tenantId);
-//        return headers.stream().map(header -> convertToDto(header, tenantId, lang)).collect(Collectors.toList());
-//    }
-//
-//    private Object convertToDto(InvoiceApplyHeader header, Long tenantId, String lang) {
-//    }
-
-    //    @Override
-//    public InvoiceHeaderDTO convertToDto(InvoiceApplyHeader header, Long tenantId, String lang) {
-//        InvoiceHeaderDTO dto = new InvoiceHeaderDTO();
-//        BeanUtils.copyProperties(header, dto);
-//
-//        // Translate values using the LOV adapter
-//        dto.setApplyStatusMeaning(lovAdapter.queryLovMeaning("HEXAM-INV-HEADER-STATUS-48209", tenantId, header.getApplyStatus(), lang));
-//        dto.setInvoiceTypeMeaning(lovAdapter.queryLovMeaning("HEXAM-INV-HEADER-TYPE-48209", tenantId, header.getInvoiceType(), lang));
-//        dto.setInvoiceColorMeaning(lovAdapter.queryLovMeaning("HEXAM-INV-HEADER-COLOR-48209", tenantId, header.getInvoiceColor(), lang));
-//
-//        return dto;
-//    }
-//    @Override
-//    public InvoiceHeaderDTO getInvoiceHeaderById(Long id) {
-//        Optional<InvoiceApplyHeader> header = invoiceApplyHeaderRepository.findById(id);
-//        return header.map(h -> convertToDto(h, h.getTenantId(), "en")).orElse(null); // Default language set to English
-//    }
-//
-//    public InvoiceApplyHeader saveInvoiceHeader(InvoiceHeaderDTO dto) {
-//        InvoiceApplyHeader entity = new InvoiceApplyHeader();
-//        BeanUtils.copyProperties(dto, entity);
-//        return invoiceApplyHeaderRepository.save(entity);
-//    }
-//
-//    public void deleteInvoiceHeader(Long id) {
-//        invoiceApplyHeaderRepository.deleteById(id);
-//    }
 
     private InvoiceHeaderDTO mapToDTO(InvoiceApplyHeader header) {
         InvoiceHeaderDTO dto = new InvoiceHeaderDTO();
