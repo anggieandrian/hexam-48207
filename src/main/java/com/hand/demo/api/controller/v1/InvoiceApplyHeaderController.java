@@ -1,7 +1,5 @@
 package com.hand.demo.api.controller.v1;
 
-import com.hand.demo.domain.entity.InvoiceApplyLine;
-import com.hand.demo.domain.entity.InvoiceInfoQueue;
 import io.choerodon.core.domain.Page;
 import io.choerodon.core.iam.ResourceLevel;
 import io.choerodon.mybatis.pagehelper.annotation.SortDefault;
@@ -9,8 +7,6 @@ import io.choerodon.mybatis.pagehelper.domain.PageRequest;
 import io.choerodon.mybatis.pagehelper.domain.Sort;
 import io.choerodon.swagger.annotation.Permission;
 import io.swagger.annotations.ApiOperation;
-import org.hzero.boot.interfaces.sdk.invoke.InterfaceInvokeSdk;
-import org.hzero.boot.platform.lov.annotation.LovValue;
 import org.hzero.boot.platform.lov.annotation.ProcessLovValue;
 import org.hzero.core.base.BaseController;
 import org.hzero.core.util.Results;
@@ -26,7 +22,6 @@ import com.hand.demo.domain.repository.InvoiceApplyHeaderRepository;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
