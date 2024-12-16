@@ -19,11 +19,11 @@ public class HandlerJob {
         this.applyHeaderService = applyHeaderService;
     }
 
-    @Override
-    public ReturnT execute(Map<String, String> map, SchedulerTool Stool) {
-        applyHeaderService.getinvoiceSchedulingTask(map.get("delFlag"), map.get("applyStatus"), map.get("invoiceColor"),
-                map.get("invoiceType"));
-        return ReturnT.SUCCESS;
-    }
+//    @Override
+//    public ReturnT execute(Map<String, String> map, SchedulerTool Stool) {
+//        applyHeaderService.getinvoiceSchedulingTask(map.get("delFlag"), map.get("applyStatus"), map.get("invoiceColor"),
+//                map.get("invoiceType"));
+//        return ReturnT.SUCCESS;
+//    }
 }
 

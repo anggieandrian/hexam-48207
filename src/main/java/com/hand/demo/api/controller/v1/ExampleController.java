@@ -1,7 +1,11 @@
 package com.hand.demo.api.controller.v1;
 
+import com.hand.demo.api.dto.PrefixDTO;
 import com.hand.demo.app.service.ExampleService;
 import com.hand.demo.domain.repository.ExampleRepository;
+import com.sun.org.apache.bcel.internal.generic.ARETURN;
+import io.choerodon.core.domain.Page;
+import io.choerodon.mybatis.pagehelper.domain.PageRequest;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import org.hzero.core.base.BaseController;
@@ -16,6 +20,8 @@ import io.choerodon.swagger.annotation.Permission;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import java.util.List;
+
 /**
  * API接口
  */
@@ -24,12 +30,12 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/v1/example")
 public class ExampleController extends BaseController {
 
-//    @Autowired
-//    private ExampleService exampleService;
-//    @Autowired
-//    private ExampleRepository exampleRepository;
-//
-//    @ApiOperation(value = "根据ID获取")
+    @Autowired
+    private ExampleService exampleService;
+    @Autowired
+    private ExampleRepository exampleRepository;
+
+    //    @ApiOperation(value = "根据ID获取")
 //    @Permission(level = ResourceLevel.SITE, permissionLogin = true)
 //    @ApiImplicitParams({
 //            @ApiImplicitParam(name = "id", value = "ID", paramType = "path")
@@ -38,6 +44,11 @@ public class ExampleController extends BaseController {
 //    public ResponseEntity<Example> hello(@PathVariable Long id) {
 //        return Results.success(exampleRepository.selectByPrimaryKey(id));
 //    }
+    @Permission(level=ResourceLevel.ORGANIZATION)
+    @GetMapping
+    public ResponseEntity<Page<PrefixDTO>> getInvoiceData(@PathVariable Long organizationId, PageRequest pageRequest, PrefixDTO prefixDTO){
+        return Results.success(exampleService.getInvoiceData(pageRequest, prefixDTO, organizationId));
+    }
 
 
 }
